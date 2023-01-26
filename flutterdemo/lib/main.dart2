@@ -1,0 +1,75 @@
+// import 'package:flutter/material.dart';
+//
+// void main() {
+//   runApp(MaterialApp(
+//     home: Scaffold(
+//       appBar: AppBar(
+//         title: const Text("Flutter Demo"),
+//       ),
+//       body: const Center(
+//         child: Text(
+//           "Hello World!",
+//           textDirection: TextDirection.ltr,
+//           style: TextStyle(color: Colors.red, fontSize: 48),
+//         ),
+//       ),
+//     ),
+//   ));
+// }
+
+import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(
+        title: const Text("Flutter Demo"),
+      ),
+      // body: const MyApp(),
+      body: WebView(
+        // initialUrl: "https://www.baidu.com/",
+        initialUrl: "http://www.weison-zhong.cn:3000/mobile",
+        javascriptMode: JavascriptMode.unrestricted,
+        onPageStarted: (String url) {
+          print("onPageStarted $url");
+        },
+        onPageFinished: (String url) {
+          print("onPageFinished $url");
+        },
+        onWebResourceError: (error) {
+          print("${error.description}");
+        },
+      ),
+    ),
+  ));
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text(
+        "Hello World!",
+        textDirection: TextDirection.ltr,
+        style: TextStyle(color: Colors.red, fontSize: 48),
+      ),
+    );
+  }
+}
+
+// WebView(
+// initialUrl: "https://www.baidu.com/",
+// javascriptMode: JavascriptMode.unrestricted,
+// onPageStarted: (String url) {
+// print("onPageStarted $url");
+// },
+// onPageFinished: (String url) {
+// print("onPageFinished $url");
+// },
+// onWebResourceError: (error) {
+// print("${error.description}");
+// },
+// ),
