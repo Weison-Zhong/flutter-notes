@@ -24,7 +24,7 @@ class _WebViewAppState extends State<WebViewApp> {
     super.initState();
     controller = WebViewController()
       ..loadRequest(
-        Uri.parse('https://www.baidu.com'),
+        Uri.parse('http://www.weison-zhong.cn'),
       );
   }
 
@@ -32,7 +32,7 @@ class _WebViewAppState extends State<WebViewApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter WebView'),
+        title: const Text('Flutter WebView Demo'),
       ),
       body: WebViewWidget(
         controller: controller,
